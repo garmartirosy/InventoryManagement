@@ -31,7 +31,7 @@ Before running the project locally, install:
 ### 1. Clone the repository
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/garmartirosy/InventoryManagement
 ```
 
 ### 2. Create the database
