@@ -1,0 +1,58 @@
+@page
+@model InventoryManagement.Pages.Inventories.IndexModel
+
+<h1>Inventory</h1>
+
+<form method="post">
+    <input asp-for="Inventory.Id" type="hidden" />
+
+    <div>
+        <label asp-for="Inventory.ProductId"></label>
+        <select asp-for="Inventory.ProductId">
+            <option value="">-- Select a product --</option>
+            @foreach (var product in Model.Products)
+            {
+                <option value="@product.Id">@product.Name</option>
+            }
+        </select>
+        <span asp-validation-for="Inventory.ProductId"></span>
+    </div>
+
+    <div>
+        <label asp-for="Inventory.Amount"></label>
+        <input asp-for="Inventory.Amount" type="number" />
+        <span asp-validation-for="Inventory.Amount"></span>
+    </div>
+
+    <button type="submit">Save</button>
+    <a asp-page="./Index">Clear</a>
+</form>
+
+<table>
+    <thead>
+        <tr>
+            <th>Product</th>
+            <th>Amount</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var inventory in Model.Inventories)
+        {
+            <tr>
+                <td>@inventory.ProductName</td>
+                <td>@inventory.Amount</td>
+                <td>
+                    <a asp-page="./Index" asp-route-id="@inventory.Id">Edit</a>
+                    <form method="post" asp-page-handler="Delete" asp-route-id="@inventory.Id">
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

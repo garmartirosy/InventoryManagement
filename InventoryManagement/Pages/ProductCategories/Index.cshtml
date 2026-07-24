@@ -1,0 +1,44 @@
+@page
+@model InventoryManagement.Pages.ProductCategories.IndexModel
+
+<h1>Product Categories</h1>
+
+<form method="post">
+    <input asp-for="ProductCategory.Id" type="hidden" />
+
+    <div>
+        <label asp-for="ProductCategory.Name"></label>
+        <input asp-for="ProductCategory.Name" />
+        <span asp-validation-for="ProductCategory.Name"></span>
+    </div>
+
+    <button type="submit">Save</button>
+    <a asp-page="./Index">Clear</a>
+</form>
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var productCategory in Model.ProductCategories)
+        {
+            <tr>
+                <td>@productCategory.Name</td>
+                <td>
+                    <a asp-page="./Index" asp-route-id="@productCategory.Id">Edit</a>
+                    <form method="post" asp-page-handler="Delete" asp-route-id="@productCategory.Id">
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

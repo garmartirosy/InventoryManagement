@@ -1,0 +1,21 @@
+@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home";
+}
+
+<h1>Inventory Management</h1>
+
+<p>Manage products, categories, suppliers, inventory counts, and stock transactions.</p>
+
+<div>
+    <a asp-page="/Products/Index">Products</a>
+    <span>|</span>
+    <a asp-page="/ProductCategories/Index">Categories</a>
+    <span>|</span>
+    <a asp-page="/Suppliers/Index">Suppliers</a>
+    <span>|</span>
+    <a asp-page="/Inventories/Index">Inventory</a>
+    <span>|</span>
+    <a asp-page="/StockTransactions/Index">Transactions</a>
+</div>

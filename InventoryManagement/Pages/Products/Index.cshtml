@@ -1,0 +1,80 @@
+@page
+@model InventoryManagement.Pages.Products.IndexModel
+
+<h1>Products</h1>
+
+<form method="post">
+    <input asp-for="Product.Id" type="hidden" />
+
+    <div>
+        <label asp-for="Product.Name"></label>
+        <input asp-for="Product.Name" />
+        <span asp-validation-for="Product.Name"></span>
+    </div>
+
+    <div>
+        <label asp-for="Product.Price"></label>
+        <input asp-for="Product.Price" type="number" step="0.01" />
+        <span asp-validation-for="Product.Price"></span>
+    </div>
+
+    <div>
+        <label asp-for="Product.CategoryId"></label>
+        <select asp-for="Product.CategoryId">
+            <option value="">None</option>
+            @foreach (var category in (IEnumerable<InventoryManagement.Models.ProductCategory>)ViewBag.ProductCategories)
+            {
+                <option value="@category.Id">@category.Name</option>
+            }
+        </select>
+        <span asp-validation-for="Product.CategoryId"></span>
+    </div>
+
+    <div>
+        <label asp-for="Product.SupplierId"></label>
+        <select asp-for="Product.SupplierId">
+            <option value="">None</option>
+            @foreach (var supplier in (IEnumerable<InventoryManagement.Models.Supplier>)ViewBag.Suppliers)
+            {
+                <option value="@supplier.Id">@supplier.Name</option>
+            }
+        </select>
+        <span asp-validation-for="Product.SupplierId"></span>
+    </div>
+
+    <button type="submit">Save</button>
+    <a asp-page="./Index">Clear</a>
+</form>
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Category</th>
+            <th>Supplier</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model.Products)
+        {
+            <tr>
+                <td>@product.Name</td>
+                <td>@product.Price</td>
+                <td>@product.CategoryName</td>
+                <td>@product.SupplierName</td>
+                <td>
+                    <a asp-page="./Index" asp-route-id="@product.Id">Edit</a>
+                    <form method="post" asp-page-handler="Delete" asp-route-id="@product.Id">
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

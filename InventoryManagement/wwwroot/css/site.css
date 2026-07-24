@@ -1,0 +1,144 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+  background: #f6f7f9;
+  color: #20242a;
+  line-height: 1.5;
+}
+
+main {
+  background: #fff;
+  border: 1px solid #e3e5e8;
+  padding: 24px;
+}
+
+h1 {
+  font-size: 1.75rem;
+  margin-bottom: 8px;
+}
+
+p {
+  color: #5d6673;
+}
+
+main a {
+  color: #1f5f9f;
+  text-decoration: none;
+}
+
+main a:hover {
+  text-decoration: underline;
+}
+
+main form {
+  margin: 18px 0 24px;
+}
+
+main form div {
+  margin-bottom: 12px;
+}
+
+main label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+main input,
+main select,
+main textarea {
+  border: 1px solid #cfd5dc;
+  border-radius: 4px;
+  padding: 7px 9px;
+  width: 100%;
+  max-width: 360px;
+  background: #fff;
+}
+
+main textarea {
+  min-height: 90px;
+}
+
+main button,
+main form a {
+  display: inline-block;
+  border: 1px solid #b8c1cc;
+  border-radius: 4px;
+  padding: 6px 12px;
+  background: #fff;
+  color: #20242a;
+  line-height: 1.4;
+}
+
+main button[type="submit"] {
+  background: #1f5f9f;
+  border-color: #1f5f9f;
+  color: #fff;
+}
+
+main button:hover,
+main form a:hover {
+  filter: brightness(0.96);
+  text-decoration: none;
+}
+
+main table {
+  width: 100%;
+  margin-top: 18px;
+  border-collapse: collapse;
+  background: #fff;
+}
+
+main th,
+main td {
+  border-bottom: 1px solid #e3e5e8;
+  padding: 10px 8px;
+  text-align: left;
+  vertical-align: middle;
+}
+
+main th {
+  color: #4e5966;
+  font-weight: 600;
+  background: #f9fafb;
+}
+
+main td form {
+  display: inline;
+  margin: 0 0 0 8px;
+}
+
+main td form button {
+  padding: 3px 8px;
+  background: #fff;
+  border-color: #d2a6a6;
+  color: #9f2f2f;
+}
+
+.field-validation-error {
+  display: block;
+  margin-top: 3px;
+  color: #9f2f2f;
+}
+
+.footer {
+  background: #fff;
+}

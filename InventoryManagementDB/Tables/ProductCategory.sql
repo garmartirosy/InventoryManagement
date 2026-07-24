@@ -1,0 +1,9 @@
+﻿CREATE TABLE ProductCategory
+(
+	Id INT IDENTITY NOT NULL PRIMARY KEY,
+	UserId NVARCHAR(450) NOT NULL,
+	Name VARCHAR(100) NOT NULL,
+
+	CONSTRAINT FK_ProductCategory_AspNetUsers_UserId 
+		FOREIGN KEY (UserId) REFERENCES AspNetUsers(Id)
+)

@@ -1,0 +1,8 @@
+CREATE PROCEDURE GetSuppliers(
+	@UserId NVARCHAR(450)
+)
+AS SET NOCOUNT ON
+SELECT Id, UserId, Name
+FROM Supplier
+WHERE UserId = @UserId
+ORDER BY Name
