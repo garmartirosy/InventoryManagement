@@ -45,15 +45,16 @@ using (var scope = app.Services.CreateScope())
 if (app.Environment.IsDevelopment())
 {
     app.UseMigrationsEndPoint();
-    app.UseSwagger();
-    app.UseSwaggerUI();
+
 }
 else
 {
     app.UseExceptionHandler("/Error");
     app.UseHsts();
 }
-
+app.UseSwagger();
+app.UseSwaggerUI();
+    
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
